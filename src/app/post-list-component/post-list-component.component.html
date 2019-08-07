@@ -1,0 +1,9 @@
+<ul class="list-group">
+<app-post-list-item-component
+*ngFor="let post of tabPosts"
+        [UnPostTitle]="post.title"
+        [UnPostContent]="post.content"
+        [UnPostLoveIts]="post.loveIts"
+        [UnPostCreatedAt]="post.created_at">
+</app-post-list-item-component>
+</ul>
