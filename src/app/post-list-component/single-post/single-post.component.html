@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Titre : {{ post.title }}</h1>
+    <h3>Contenu : {{ post.content }}</h3>
+    <p>Date : {{ post.createdAt  | date: 'short' }}</p>
+    <button class="btn btn-default" (click)="onBack()">Retour</button>
+  </div>
+</div>
