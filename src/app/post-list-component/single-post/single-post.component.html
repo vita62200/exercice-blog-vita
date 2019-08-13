@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-xs-12">
+    <h1>Détail du post</h1>
     <h1>Titre : {{ post.title }}</h1>
     <h3>Contenu : {{ post.content }}</h3>
-    <p>Date : {{ post.createdAt  | date: 'short' }}</p>
+    <h3>Date : {{ post.createdAt  | date: 'short' }}</h3>
+    <h3>Nombre de Like : {{ post.loveIts }}</h3>
     <button class="btn btn-default" (click)="onBack()">Retour</button>
   </div>
 </div>
