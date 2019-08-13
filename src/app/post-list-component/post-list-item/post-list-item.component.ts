@@ -8,7 +8,7 @@ import { Post } from 'src/app/models/post.model';
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit, OnDestroy  {
+export class PostListItemComponent   {
 
   @Input() UnPostTitle: string;
   @Input() UnPostContent: string;
@@ -16,20 +16,7 @@ export class PostListItemComponent implements OnInit, OnDestroy  {
   @Input() UnPostCreatedAt: Date;
   @Input() UnPostId: number;
 
-  posts: Post[];
-  postsSubscription: Subscription;
-
   constructor(private postsService: PostsService) {}
-
-  ngOnInit() {
-    this.postsSubscription = this.postsService.postsSubject.subscribe(
-      (posts: Post[]) => {
-        this.posts = posts;
-      }
-    );
-    this.postsService.getPosts();
-    this.postsService.emitPosts();
-  }
 
   onLike() {
     this.postsService.likePostById(this.UnPostId);
@@ -41,10 +28,6 @@ export class PostListItemComponent implements OnInit, OnDestroy  {
 
   onDeletePost() {
     this.postsService.removePostById(this.UnPostId);
-  }
-
-  ngOnDestroy() {
-    this.postsSubscription.unsubscribe();
   }
 
 }
