@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Post } from '../models/post.model';
-import { HttpClient } from '@angular/common/http';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 
@@ -11,7 +10,7 @@ export class PostsService {
   posts: Post[] = [];
   postsSubject = new Subject<Post[]>();
 
-  constructor(private httpClient: HttpClient) {
+  constructor() {
   }
 
   emitPosts() {
